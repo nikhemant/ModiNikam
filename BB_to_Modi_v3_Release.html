@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@font-face {
+    font-family: ModiNikam;
+    src:url("ModiNikam-Regular.otf");
+}
+
+.ModiLipi{
+    font-family: ModiNikam;
+}
+</style>
+
+<script>
+
+function fnClr(e){
+document.getElementById('divoutputdiv').innerText='';
+document.getElementById('txtBBtoModi').value = '';
+}
+
+function fntype(e){
+//alert(e.value);
+text = document.getElementById('txtBBtoModi').value
+//text = "शासन";
+//code = text.charCodeAt(4).toString(16)
+
+//text ="अआइईउऊएऐओऔ कखगघङ चछजझञ टठडढण तथदधन पफबभम यरलव शषसह ळ ं ः";
+//text ="अआइईउऊएऐओऔ कखगघङ चछजझञ टठडढण तथदधन पफबभम यरलव शषसह ळ ं ः ा ि ी ु ू े ै ो ौ  ०१२३४५६७८९";
+    
+/*
+text = `
+अ आ इ ई उ ऊ ए ऐ ओ औ अं अः
+क का कि की कु कू के कै को कौ कं कः
+ख खा खि खी खु खू खे खै खो खौ खं खः
+ग गा गि गी गु गू गे गै गो गौ गं गः
+घ घा घि घी घु घू घे घै घो घौ घं घः
+च चा चि ची चु चू चे चै चो चौ चं चः
+छ छा छि छी छु छू छे छै छो छौ छं छः
+ज जा जि जी जु जू जे जै जो जौ जं जः
+झ झा झि झी झु झू झे झै झो झौ झं झः
+ट टा टि टी टु टू टे टै टो टौ टं टः
+ठ ठा ठि ठी ठु ठू ठे ठै ठो ठौ ठं ठः
+ड डा डि डी डु डू डे डै डो डौ डं डः
+ढ ढा ढि ढी ढु ढू ढे ढै ढो ढौ ढं ढः
+ण णा णि णी णु णू णे णै णो णौ णं णः
+त ता ति ती तु तू ते तै तो तौ तं तः
+थ था थि थी थु थू थे थै थो थौ थं थः
+द दा दि दी दु दू दे दै दो दौ दं दः
+ध धा धि धी धु धू धे धै धो धौ धं धः
+न ना नि नी नु नू ने नै नो नौ नं नः
+प पा पि पी पु पू पे पै पो पौ पं पः
+फ फा फि फी फु फू फे फै फो फौ फं फः
+ब बा बि बी बु बू बे बै बो बौ बं बः
+भ भा भि भी भु भू भे भै भो भौ भं भः
+म मा मि मी मु मू मे मै मो मौ मं मः
+य या यि यी यु यू ये यै यो यौ यं यः
+र रा रि री रु रू रे रै रो रौ रं रः
+ल ला लि ली लु लू ले लै लो लौ लं लः
+व वा वि वी वु वू वे वै वो वौ वं वः
+श शा शि शी शु शू शे शै शो शौ शं शः
+ष षा षि षी षु षू षे षै षो षौ षं षः
+स सा सि सी सु सू से सै सो सौ सं सः
+ह हा हि ही हु हू हे है हो हौ हं हः
+ळ ळा ळि ळी ळु ळू ळे ळै ळो ळौ ळं ळः
+क्ष क्षा क्षि क्षी क्षु क्षू क्षे क्षै क्षो क्षौ क्षं क्षः
+त्र त्रा त्रि त्री त्रु त्रू त्रे त्रै त्रो त्रौ त्रं त्रः
+ज्ञ ज्ञा ज्ञि ज्ञी ज्ञु ज्ञू ज्ञे ज्ञै ज्ञो ज्ञौ ज्ञं ज्ञः
+श्र श्रा श्रि श्री श्रु श्रू श्रे श्रै श्रो श्रौ श्रं श्रः
+`
+*/
+/*
+Code	Result	Description	Ac
+ASCII punctuation and symbols
+U+0020	 	Space	SP
+U+0021	!	Exclamation mark	EXC -
+U+0022	"	Quotation mark	QUO -
+U+0023	#	Number sign	- ˑ
+U+0024	$	Dollar sign	
+U+0025	%	Percent sign	-
+U+0026	&	Ampersand	
+U+0027	'	Apostrophe	- 
+U+0028	(	Left parenthesis	-
+U+0029	)	Right parenthesis	-
+U+002A	*	Asterisk	-˟
+U+002B	+	Plus sign	-
+U+002C	,	Comma	-
+U+002D	-	Hyphen-minus  -	
+U+002E	.	Full stop or period	-
+U+002F	/	Solidus or Slash	
+
+U+003A	:	Colon	- 
+U+003B	;	Semicolon	- 
+U+003C	<	Less-than sign	-
+U+003D	=	Equal sign	-
+U+003E	>	Greater-than sign -	
+U+003F	?	Question mark	-
+U+0040	@	At sign or Commercial at  -˞
+
+U+005B	[	Left Square Bracket	-use same as (
+U+005C	\	Backslash [A]	
+U+005D	]	Right Square Bracket	-use same as )
+U+005E	^	Circumflex accent	
+U+005F	_	Low line	
+U+0060	`	Grave accent
+
+U+007B	{	Left Curly Bracket	-use same as (
+U+007C	|	Vertical bar	- use existing Ì
+U+007D	}	Right Curly Bracket	-use same as )
+U+007E	~	Tilde
+
+//TODO : add a special character for representing missing char - ː
+
+*/
+
+
+//TODO : following map is handle all special chars used in marathi e.g. , ; : ( ) ,etc.
+var mappSpl = '{"20":"Ð", "A":"\\\\n"' //space , newline
++ ', "21":"ʲ", "22":"˝", "23":"ˑ", "24":"", "25":"ʵ", "26":"", "27":"ʻ", "28":"˓", "29":"˒", "2A":"˟", "2B":"˖", "2C":"‚", "2D":"˗", "2E":".", "2F":""' //
++ ', "3A":"˸", "3B":"ʴ", "3C":"˂", "3D":"˭", "3E":"˃", "3F":"№", "40":"˞"' //
++ ', "5B":"˓", "5C":"", "5D":"˒", "5E":"", "5F":"", "60":""' //
++ ', "7B":"˓", "7C":"Ì", "7D":"˒", "7E":""' //
++ ', "950":"ê", "5350":"´", "F7":"÷"' //ॐ  卐 (U+5350) ÷
++ '}';
+const mapObjSpl = JSON.parse(mappSpl);
+
+//can use template literals in ES6 for multiple line strings
+
+//following map is for single chars //https://en.wikipedia.org/wiki/Devanagari_(Unicode_block)
+//text="अआइईउऊएऐओऔ कखगघङ चछजझञ टठडढण तथदधन पफबभम यरलव शषसह ळ ं ः ा ि ी ु ू े ै ो ौ  ॅ ृ ् ०१२३४५६७८९";
+//alert(text.length)
+var mapp = '{"20":"", "200D":""' // zwj 
++ ',"905":"¡", "906":"A", "907":"I", "908":"I", "909":"U", "90A":"U", "90F":"¡o", "910":"¡O", "913":"Ao", "914":"AO"' //अआइईउऊएऐओऔ
++ ',"915":"k", "916":";", "917":"g/", "918":"G/", "919":"Ý", "91A":"c", "91B":"C", "91C":"j", "91D":"z", "91E":"ß"' //कखगघङ 	चछजझञ
++ ',"91F":"[", "920":"]", "921":"É", "922":"¥", "923":"</", "924":"t", "925":"w", "926":"d", "927":"q", "928":"n"' //टठडढण	तथदधन
++ ',"92A":"p", "92B":"f", "92C":"b", "92D":"’", "92E":"m", "92F":"y", "930":"r", "931":"r", "932":"l", "935":"v"' 				//पफबभम	यरऱलव 	//द ऱ ् य ा  =दऱ्या  ,  द र ् य ा  = दर्या 
++ ',"936":"`/", "937":"©/", "938":"s", "939":"h", "933":"§"' 														// शषसह ळ
++ ',"902":",", "903":"Ë", "93E":"/", "93F":"i", "940":"i" , "941":"u", "942":"u", "947":"o", "948":"O", "94B":"/o", "94C":"/O", "945":"*", "943":"È", "94D":"ì", "949":"/*"' //ं ः ा ि ी ु ू े ै ो ौ  ॅ ृ ् ॉ
++ ',"966":"0", "967":"1", "968":"2", "969":"3", "96A":"4", "96B":"5", "96C":"6", "96D":"7", "96E":"8", "96F":"9"' //०१२३४५६७८९
+//+ ',"950":"ê"' //ॐ  //卐 U+5350
++ '}';
+const mapObj = JSON.parse(mapp);
+
+
+//following map is for double chars 
+//क and स have their own formats --- ख च ट ठ थ द ध प ब य व ह  have Ra as | --- त and भ  have Ra as \ --- ग घ ण श ष  are taken care in if statement for Ra --- others chars viz. ङछजझञडढनफभमरलळ have normal Ra combination
+//क and स have their own formats --- ख च ट ठ थ द ध प ब य व ह  have Ra as | --- त and भ  have Ra as \ --- ग घ ण श ष  are taken care in if statement for Ra --- others chars viz. ङछजझञडढनफभमरलळ have normal Ra combination
+var mapp2 = '{"020":""'
++ ' ,"915_94D_":"²", "915_93E_":"K", 								"915_941_":"!", "915_942_":"!", "915_94B_":"Ko", "915_94C_":"KO" , "915_930_":"e", "915_943_":"Dm"' //क् काकुकूकोकौ  कर  कृ (using m for कृ )
++ ' ,"916_94D_":"³" ,"916_93E_":":", 								"916_941_":"®", "916_942_":"®", "916_94B_":":o", "916_94C_":":O", "916_930_":";|"' //ख् खाखुखूखोखौ  खर
++ ' ,"917_94D_":"g" ,												"917_941_":"#", "917_942_":"#"'									 //ग् गुगू 
++ ' ,"918_94D_":"G"' //घ् 
++ ' ,"919_94D_":"Ýì"' //ङ् 
++ ' ,"91A_94D_":">" ,"91A_93E_":"c~",								 "91A_941_":"c%", "91A_942_":"c%", "91A_94B_":"c~o", "91A_94C_":"c~O", "91A_930_":"c|"'//च् चाचुचूचोचौ चर
++ ' ,"91B_94D_":"Cì" ,"91B_93E_":"C~"'																									//छ् छा
++ ' ,"91C_94D_":"¬" ,"91C_93E_":"J", 								"91C_941_":"=", "91C_942_":"=", "91C_94B_":"Jo", "91C_94C_":"JO"'	//ज् जाजुजूजोजौ
++ ' ,"91D_94D_":"Ê" ,"91D_93E_":"Z", 																	"91D_94B_":"Zo", "91D_94C_":"ZO"' //झ् झाझोझौ
++ ' ,"91E_94D_":"ßì"' //ञ्
++ ' ,"91F_94D_":"å" ,"91F_93E_":"{", 																	"91F_94B_":"{o", "91F_94C_":"{O", "91F_930_":"{|"' //ट् टाटोटौ     टर
++ ' ,"920_94D_":"æ" ,"920_93E_":"}", 																	"920_94B_":"}o", "920_94C_":"}O", "920_930_":"}|"' //ठ् ठाठोठौ    ठर
++ ' ,"921_94D_":"Éì" ,					"921_93F_":"Ã", "921_940_":"Ã"'																	//ड् डिडी
++ ' ,"912_94D_":"¥ì"' //ढ्	
++ ' ,"913_94D_":"<"' //ण्
++ ' ,"924_94D_":"T" ,												"924_941_":"^", "924_942_":"^", "924_930_":"t\\\\"'							//त् तुतू  तर
++ ' ,"925_94D_":"Ó" ,"925_93E_":"W",								 	"925_941_":"Ó/u", "925_942_":"Ó/u", "925_94B_":"Wo", "925_94C_":"WO", "925_930_":"w|"'//थ् थाथुथूथोथौ थर  
++ ' ,"926_94D_":"D" ,"926_93E_":"D/",								 "926_941_":"(", "926_942_":"(", "926_94B_":"D/o", "926_94C_":"D/O", "926_930_":"d|"'//द् दादुदूदोदौ दर
++ ' ,"927_94D_":"Q" ,"927_93E_":"Q//",								 "927_941_":"Q/u", "927_942_":"Q/u", "927_94B_":"Q//o", "927_94C_":"Q//O", "927_930_":"Q/|"'//ध् धाधुधूधोधौ धर
++ ' ,"928_94D_":"¯" ,"928_93E_":"N",								 	"928_941_":"+", "928_942_":"+", "928_94B_":"No", "928_94C_":"NO"' //न् नानुनूनोनौ
++ ' ,"92A_94D_":"Þ" ,"92A_93E_":"Þ//",								 	"92A_941_":"Þ/u", "92A_942_":"Þ/u", "92A_94B_":"Þ//o", "92A_94C_":"Þ//O", "92A_930_":"p|"' //प् पापुपूपोपौ पर
++ ' ,"92B_94D_":"ä" ,"92B_93E_":"F",								 	"92B_941_":"&", "92B_942_":"&", "92B_94B_":"Fo", "92B_94C_":"FO"' //फ् फाफुफूफोफौ
++ ' ,"92C_94D_":"Ö" ,"92C_93E_":"B",								 	"92C_941_":"b%", "92C_942_":"b%", "92C_94B_":"Bo", "92C_94C_":"BO", "92C_930_":"b|"' //ब् बाबुबूबोबौ बर
++ ' ,"92D_94D_":"ã" ,"92D_93E_":"”",								 									"92D_94B_":"”o", "92D_94C_":"”O", "92D_930_":"’\\\\"' //भ् भाभोभौ भर
++ ' ,"92E_94D_":"µ" ,"92E_93E_":"M",								 	"92E_941_":"Ñ", "92E_942_":"Ñ", "92E_94B_":"Mo", "92E_94C_":"MO"' //म् मामुमूमोमौ
++ ' ,"92F_94D_":"À" ,"92F_93E_":"Y",								 	"92F_941_":"Áu", "92F_942_":"Áu", "92F_94B_":"Yo", "92F_94C_":"YO", "92F_930_":"y|"' //य् यायुयूयोयौ यर
++ ' ,				"930_93E_":"R",								 	"930_941_":"$", "930_942_":"$", "930_94B_":"Ro", "930_94C_":"RO"' //र् रारुरूरोरौ  
++ ' ,"930_94D_":"_"' //र ् य = र्य    here joined form has to be used after the next full letter (which can be joined or with diacritic kana matra etc.)
++ ' ,"931_94D_":"-"' //ऱ ् य = ऱ्य    		//र ् य = र्य   //ऱ ् य = ऱ्य   //द ऱ ् य ा  =दऱ्या  ,  द र ् य ा  = दर्या  
++ ' ,"932_94D_":"±" ,"932_93E_":"L",	"932_93F_":"?", "932_940_":"?", "932_941_":"l%", "932_942_":"l%", "932_94B_":"Lo", "932_94C_":"LO"' //ल् लालिलीलुलूलोलौ 
++ ' ,"935_94D_":"¾" ,"935_93E_":"V",								 	"935_941_":"v%", "935_942_":"v%", "935_94B_":"Vo", "935_94C_":"VO", "935_930_":"v|"' //व् वावुवूवोवौ    वर
++ ' ,"936_94D_":"¢"' //श्	
++ ' ,"937_94D_":"©"' //ष्	
++ ' ,"938_94D_":"ª" , "938_93E_":"S",								 	"938_941_":"a%", "938_942_":"a%", "938_94B_":"So", "938_94C_":"SO", "938_930_":"Â«"' //स्  सासुसूसोसौ  सर
++ ' ,"939_94D_":"Ö" ,"939_93E_":"H",								 	"939_941_":"@", "939_942_":"@", "939_94B_":"Ho", "939_94C_":"HO", "939_930_":"h|", "939_943_":"ˇ"' //ह् हाहुहूहोहौ   हर   ह ृ = हृ
++ ' ,"933_94D_":"¼"' //ळ्
++ '}';
+//alert(mapp2)
+const mapObj2 = JSON.parse(mapp2);
+
+
+
+//following map is for three chars 
+var mapp3 = '{"":"ì"'
++ ', "915_93E_930_":"E"' //क ा र = कार
++ ', "91C_94D_91E_":"Dn"' //ज ् ञ = ज्ञ  - Dn or ¿
++ ', "924_94D_92F_":"TÁ"' //त ् य = त्य //TODO : य after halant takes this form Á, do this for all chars before Ya 
++ ', "915_94D_937_":"x"' //क ्ष = क्ष
++ ', "91F_94D_91F_":"Û"' //ट ्ट = ट्ट
++ ', "920_94D_920_":"Õ"' //ठ ्ठ = ठ्ठ
++ ', "937_94D_91F_":"·"' //ष ्ट = ष्ट  
++ ', "937_94D_920_":"¸"' //ष ्ठ = ष्ठ   
+//+ ', "937_94D_923_":"»"' //ष ्ण = ष्ण  //better with normal representation
++ ', "926_94D_92F_":"ˉ"' //द ् य = द्य 
++ ', "936_94D_91A_":"ÇÜ"' //श ् च = श्च
++ ', "938_93E_930_":"S\\\\"' //स ा र = सार
+//क ् र combination for all chars, following are separate characters else code will add î by default //+ ', "915_94D_930_":"kî"' //क ् र = क्र
++ ', "924_94D_930_":"â/"' //त ् र = त्र
++ ', "936_94D_930_":"Æ"' //श ्र = श्र
++ ', "926_94D_930_":"Ò"' //द ् र = द्र
++ ', "939_94D_930_":"ˇ"' //ह ् र = ह्र
++ ', "92A_94D_930_":"Þ/î"' // प ् र = प्र
++ '}';
+const mapObj3 = JSON.parse(mapp3);
+
+var patt2 = ""; //pattern of 2 consecutive char codes
+var patt2NoOfChars = 0;
+var patt3 = ""; //pattern of 3 consecutive char codes
+var patt3NoOfChars = 0;
+var code = "";
+var val = "";
+var prevval = "";
+var prevvallen = 0; //previous value length
+
+for (let i = 0; i < text.length; i++) {
+	code = text.charCodeAt(i).toString(16).toUpperCase();
+	/*
+	if(code == "20") { //space	
+		val = fnHandle_ryaa(val, prevvallen);	
+		val += "Ð"; //Ð
+		patt3 = ""; 
+		patt3NoOfChars = 0;
+		patt2 = ""; 
+		patt2NoOfChars = 0;
+		prevval = "";
+		prevvallen = 0;
+		continue;
+	} 
+	if(code == "A") { //newline
+		val += "\n"; 
+		patt3 = ""; 
+		patt3NoOfChars = 0;
+		patt2 = ""; 
+		patt2NoOfChars = 0;	
+		prevval = "";
+		prevvallen = 0;	
+		continue;
+	} 
+	if(code == "2E") { //fullstop
+		val += "."; 
+		patt3 = ""; 
+		patt3NoOfChars = 0;
+		patt2 = ""; 
+		patt2NoOfChars = 0;		
+		prevval = "";
+		prevvallen = 0;
+		continue;
+	} 
+*/	
+	//TODO : change width of the characters
+	
+	//for all special chars like ' " ( ) , etc.
+	if(typeof mapObjSpl[code] != 'undefined') {
+		val += mapObjSpl[code]; 
+		patt3 = ""; 
+		patt3NoOfChars = 0;
+		patt2 = ""; 
+		patt2NoOfChars = 0;		
+		prevval = "";
+		prevvallen = 0;
+		continue;	
+	}
+	
+	
+	
+	
+	//4-5 code characters 
+		//·ìr //"ष ् ट ्र = ष्ट्र " 
+		if(code == "930" && val.slice(-2) == "·ì") {
+			val = val.slice(0, -2);
+			val += "º"; 
+			patt3 = ""; 
+			patt3NoOfChars = 0;
+			patt2 = ""; 
+			patt2NoOfChars = 0;		
+			prevval = "";
+			prevvallen = 0;
+			continue;
+		}
+		//Òìy  //द ् र ् य   =द्र्य "
+		if(code == "92F" && val.slice(-2) == "Òì") {
+			val = val.slice(0, -2);
+			val += "ˉî"; 
+			patt3 = ""; 
+			patt3NoOfChars = 0;
+			patt2 = ""; 
+			patt2NoOfChars = 0;		
+			prevval = "";
+			prevvallen = 0;
+			continue;
+		}	
+		// º/  //"ष ् ट ्र ा  = ष्ट्रा 
+		if(code == "93E" && val.slice(-1) == "º") {
+			val = val.slice(0, -1);
+			val += "ç"; 
+			patt3 = ""; 
+			patt3NoOfChars = 0;
+			patt2 = ""; 
+			patt2NoOfChars = 0;		
+			prevval = "";
+			prevvallen = 0;
+			continue;
+		}	
+		//  Dn/   ज ् ञ ा 
+		if(code == "93E" && val.slice(-2) == "Dn") {
+			val = val.slice(0, -2);
+			val += "DN"; 
+			patt3 = ""; 
+			patt3NoOfChars = 0;
+			patt2 = ""; 
+			patt2NoOfChars = 0;		
+			prevval = "";
+			prevvallen = 0;
+			continue;
+		}	
+		//  x/   क ् ष ा
+		if(code == "93E" && val.slice(-1) == "x") {
+			val = val.slice(0, -1);
+			val += "X"; 
+			patt3 = ""; 
+			patt3NoOfChars = 0;
+			patt2 = ""; 
+			patt2NoOfChars = 0;		
+			prevval = "";
+			prevvallen = 0;
+			continue;
+		}	
+		// xìr    क ् ष ् र   
+		if(code == "930" && val.slice(-2) == "xì") {
+			val = val.slice(0, -2);
+			val += "xî"; 
+			patt3 = ""; 
+			patt3NoOfChars = 0;
+			patt2 = ""; 
+			patt2NoOfChars = 0;		
+			prevval = "";
+			prevvallen = 0;
+			continue;
+		}	
+			
+		
+	patt2 = patt2 + code + "_"; patt2NoOfChars++;
+	patt3 = patt3 + code + "_"; patt3NoOfChars++;
+
+	
+	//if curr char is Ra and prev chars from val fit in any combination then add that char
+	// after / , i , /o , /O add é else continue -  ा र ,  ि र ,  ी र ,  ो र  , ौ र 
+	//** if there is halant after Ra then keep normal Ra i.e. following logic is not required
+	if(code == "930" && text.charCodeAt(i+1).toString(16).toUpperCase() != '94D') { //Ra chi karamat
+		
+		last3chars = val.slice(-3)
+		last2chars = val.slice(-2)
+		last1char = val.slice(-1)
+		if(last2chars == "_ ") { //fnHandle_ryaa executed completely just before e.g. पूर्णार
+			last3chars = val.slice(-5).slice(0,3)
+			last2chars = val.slice(-4).slice(0,2)
+			last1char = val.slice(-3).slice(0,1)
+		}
+		if(last2chars == "/O" || last2chars == "/o" || last1char == "/" || last1char == "i") {
+			//this / automatically covers ग  घ ण श ष as they end with /, so only त and भ should be added in mapp2 
+			//other than this round ending chars viz. ख च ट ठ थ द ध प ब य व ह  have Ra as |
+			val += "\\"; 			
+			patt3 = ""; 
+			patt3NoOfChars = 0;
+			patt2 = ""; 
+			patt2NoOfChars = 0;		
+			continue;
+		}
+		else if (last3chars == "Þ/u"){
+			//Pu has é after removing ukaar पुर पूर
+			val = val.slice(0,-1)
+			val += "é"; 			
+			patt3 = ""; 
+			patt3NoOfChars = 0;
+			patt2 = ""; 
+			patt2NoOfChars = 0;		
+			continue;
+		}
+	}
+
+	//if patt3 ends with ् र  and patt3 not in mapp3 then remove the prevlen char (as it is half form) and add full char (first char in patt3) followed with î
+	if(patt3NoOfChars == 3 && patt3.slice(4) == "94D_930_" && typeof mapObj3[patt3] == 'undefined') { 
+		val = val.slice(0, -1 * prevvallen);
+		newval = mapObj[patt3.slice(0,3)] + "î"; 
+		val += newval;
+		
+		prevval	= newval;
+		prevvallen = newval.length;
+		patt3 = ""; 
+		patt3NoOfChars = 0;
+		patt2 = ""; 
+		patt2NoOfChars = 0;	
+		continue;
+	}
+
+
+	//alert(patt3)	
+	//if patt3NoOfChars==3 then check if above code pattern available in 3 char map
+		//if available then remove last 2 chars from output and append the matched char
+		//if not then return single char map value
+	if(patt3NoOfChars == 3 && typeof mapObj3[patt3] != 'undefined'
+			&& !(code == "930" && text.charCodeAt(i+1).toString(16).toUpperCase() == '94D')) { //this && is added to handle कार्याला as कार itself has a form and is 3 char combination
+		val = val.slice(0, -1 * prevvallen) //remove last char, few char like 'kara' are made of 3 chars so we have to consider length of prev char
+		val += mapObj3[patt3];
+		prevval = mapObj3[patt3];
+		prevvallen = mapObj3[patt3].length;
+		patt3 = ""; 
+		patt3NoOfChars = 0;
+		patt2 = ""; 
+		patt2NoOfChars = 0;
+	}
+	else if(patt3NoOfChars == 3 && typeof mapObj3[patt3] != 'undefined') {
+		val = val.slice(0, -1 * prevvallen) //remove last char, few char like 'kara' are made of 3 chars so we have to consider length of prev char
+		val += mapObj3[patt3];
+		prevval = mapObj3[patt3];
+		prevvallen = mapObj3[patt3].length;
+		patt3 = ""; 
+		patt3NoOfChars = 0;
+		patt2 = ""; 
+		patt2NoOfChars = 0;
+	}	
+	//alert(patt2)	
+	//if patt2NoOfChars==2 then check if above code pattern available in 2 char map
+		//if available then remove last char from output and append the matched char
+		//if not then return single char map value
+	else if(patt2NoOfChars == 2 && typeof mapObj2[patt2] != 'undefined'
+			&& !(code == "930" && text.charCodeAt(i+1).toString(16).toUpperCase() == '94D')) { //this && is added to handle दर्या
+		val = val.slice(0, -1 * prevvallen) //remove last char, few char like Ga are made of 2 chars so we have to consider length of prev char
+		val += mapObj2[patt2];
+		prevval = mapObj2[patt2];
+		prevvallen = mapObj2[patt2].length;
+		patt2 = ""; 
+		patt2NoOfChars = 0;
+		if(patt3NoOfChars == 3){
+			//patt3 = patt3.slice(4); //remove first char
+			patt3 = fn_mysplice(patt3, 0, 1)
+			patt3NoOfChars--;
+			}			
+	}
+	
+	//alert(mapObj[code])
+	else if(typeof mapObj[code] != 'undefined') {
+		
+		if(mapObj[code] == "/O" || mapObj[code] == "/o" || mapObj[code] == "/" || mapObj[code] == "i"){
+			val += mapObj[code];
+			prevval	+= mapObj[code];
+			prevvallen += mapObj[code].length;
+			//if there is "_" before prevval at the end of val then remove "_" from there and put in end
+			val = fnHandle_ryaa(val, prevvallen);	
+		}
+		else if(code == "94D" && prevval == "â/") {//code = "94D" and prevval = "â/" then remove last char '/' , to handle half form of त्र  e.g. in  त्र्य
+			val = val.slice(0, -1);
+		}
+		else {
+			//if there is "_" before prevval at the end of val then remove "_" from there and put in end
+			val = fnHandle_ryaa(val, prevvallen);	
+			val += mapObj[code];
+		}
+		prevval	= mapObj[code];
+		prevvallen = mapObj[code].length;
+		if(patt2NoOfChars == 2){
+			//patt2 = patt2.slice(4); //remove first char
+			patt2 = fn_mysplice(patt2, 0, 1)
+			patt2NoOfChars--;
+			//patt3 = patt3.slice(4); //remove first char
+			patt3 = fn_mysplice(patt3, 0, 1)
+			patt3NoOfChars--;
+		}
+		if(patt3NoOfChars == 3){
+			//patt3 = patt3.slice(4); //remove first char
+			patt3 = fn_mysplice(patt3, 0, 1)
+			patt3NoOfChars--;
+		}			
+	}
+	else {
+		val += "ː"; //it is code for 卐 in my font
+	}
+}
+//alert(val)
+document.getElementById("divoutputdiv").innerText = val;
+//document.getElementById('txtenter').value = val;
+
+}
+
+//TODO: do for chars like र्ण  and र्य
+//+ ' ,"930_94D_":"_"' //र ् य = र्य    here joined form has to be used after the next full letter (which can be joined or with diacritic kana matra etc.)
+//if there is "_" before prevval at the end of val then remove "_" from there and put in end
+function fnHandle_ryaa(val, prevvallen) {
+	//alert(val); alert(prevvallen);
+	last_prevvallen_chars_andonemore = val.slice(-1-prevvallen)
+	if (last_prevvallen_chars_andonemore.slice(0,1) == "_") { //if there is "_" then put "_" at end of val
+		val = val.slice(0, -1-prevvallen);
+		val += last_prevvallen_chars_andonemore.slice(1) + "_ "; //**this blank space is required after _ as it makes sure next iteration does not consider ryaa
+	}
+	return val;	
+}
+
+
+
+//var patt=patt string to split by _ and create array, var dir = direction 0-beginning 1-last, var no_of_chars = no of array elements to remove after split
+function fn_mysplice(patt, dir , no_of_chars){
+
+var charsArray = patt.toString().split("_");
+//alert(charsArray)
+if(dir == 0) charsArray.splice(0, no_of_chars); //beginning
+else if(dir == 1) charsArray.splice(charsArray.length-no_of_chars, no_of_chars); //last
+
+return charsArray.join("_"); //add _ in end if removing from last and also consider blank space at end after splitting
+}
+
+
+</script>
+</head>
+
+<meta charset=utf-8 />
+
+<body>
+
+<!-- <input type="text" id="txtBBtoModi1" name="txtBBtoModi1"> -->
+<textarea id="txtBBtoModi" name="txtBBtoModi1" rows="3" cols="37"></textarea><br>
+<input type="button" value="Convert Balbodh to Modi" class="" onclick="fntype(this)"/>
+<input type="button" value="Clear" onclick="fnClr()"/><br/>
+<hr/>
+<div id="divoutputdiv" class="ModiLipi"><br/></div>
+<hr/>
+
+
+
+<br/>
+
+<!-- newly added chars 
+<input type="button" value="Ë" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ð" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Þ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Û" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ñ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ò" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ó" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ô" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Õ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ö" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ã" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ü" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ý" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ß" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="à" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="á" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="â" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ã" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ä" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="å" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="æ" class="ModiLipi" onclick="fntype(this)"/>
+<br/>
+<input type="button" value="ç" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="è" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="é" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ê" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="´" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ì" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ʲ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ʻ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˒" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˓" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˭" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˂" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˃" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˖" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˗" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ʵ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ʴ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˸" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˞" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ː" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ˑ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˟" class="ModiLipi" onclick="fntype(this)"/>
+
+<br/>
+<br/>
+-->
+
+
+
+
+
+
+
+
+<!-- edited existing chars 
+<input type="button" value="©" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="¦" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="O" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="y" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="/" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="¬" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="¯" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Æ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="î" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="\" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="|" class="ModiLipi" onclick="fntype(this)"/>
+
+
+
+
+<br/><br/>
+
+
+<br/><input type="button" value=" " class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="/" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="i" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="u" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="o" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="O" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="%" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="~" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="«" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="_" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ª" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ð" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Ì" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="Á" class="ModiLipi" onclick="fntype(this)"/>
+
+
+
+
+
+<br/><br/>
+<input type="button" value="&#x20" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x21" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x22" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x23" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x24" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x25" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x26" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x27" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x28" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x29" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x2a" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x2b" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x2c" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x2d" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#x2e" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x2f" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x30" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x31" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x32" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x33" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x34" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x35" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x36" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x37" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x38" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x39" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x3a" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x3b" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x3c" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#x3d" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x3e" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x3f" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x40" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x41" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x42" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x43" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x44" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x45" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x46" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x47" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x48" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x49" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x4a" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x4b" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#x4c" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x4d" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x4e" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x4f" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x50" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x51" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x52" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x53" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x54" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x55" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x56" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x57" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x58" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x59" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x5a" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#x5b" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x5c" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x5d" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x5e" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x5f" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x60" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x61" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x62" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x63" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x64" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x65" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x66" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x67" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x68" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x69" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#x6a" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x6b" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x6c" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x6d" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x6e" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x6f" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x70" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x71" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x72" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x73" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x74" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x75" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x76" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x77" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x78" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#x79" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x7a" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x7b" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x7c" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x7d" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x7e" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#x7f" class="ModiLipi" onclick="fntype(this)"/>
+<br/><br/>
+<input type="button" value="&#xa0" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xa1" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xa2" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xa3" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xa4" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xa5" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#xa6" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xa7" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xa8" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xa9" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xaa" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xab" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xac" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xad" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xae" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xaf" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xb0" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xb1" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xb2" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xb3" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xb4" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#xb5" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xb6" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xb7" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xb8" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xb9" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xba" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xbb" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xbc" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xbd" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xbe" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xbf" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xc0" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xc1" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xc2" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xc3" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#xc4" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xc5" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xc6" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xc7" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xc8" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xc9" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xca" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xcb" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xcc" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xcd" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xce" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xcf" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xd0" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xd1" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xd2" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#xd3" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xd4" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xd5" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xd6" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xd7" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xd8" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xd9" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xda" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xdb" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xdc" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xdd" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xde" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xdf" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xe0" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xe1" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#xe2" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xe3" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xe4" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xe5" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xe6" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xe7" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xe8" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xe9" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xea" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xeb" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xec" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xed" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xee" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xef" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xf0" class="ModiLipi" onclick="fntype(this)"/><br/><input type="button" value="&#xf1" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xf2" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xf3" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xf4" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xf5" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xf6" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xf7" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xf8" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xf9" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xfa" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xfb" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xfc" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xfd" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xfe" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&#xff" class="ModiLipi" onclick="fntype(this)"/><br/>
+<br/><br/>
+<input type="button" value="ˇ" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ˉ" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="ˆ" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="˘" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˙" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="˚" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="˛" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="˝" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="–" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="—" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="’" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="‚" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="”" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="„" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="†" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="‡" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="•" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="…" class="ModiLipi" onclick="fntype(this)"/>
+<input type="button" value="№" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="∫" class="ModiLipi" onclick="fntype(this)"/>
+<br/><br/>
+ˇˉˆ˘ ˙˚˛˝ –—’‚ ”„†‡
+•…№∫
+
+
+-->
+
+
+
+
+
+
+
+
+<!-- Modi barakhadi 
+<br/><input type="button" value="¡" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="A" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="I" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="I" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="U" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="U" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¡o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¡O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Ao" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="AO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¡," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="k" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="K" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ki" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ki" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="!" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="!" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ko" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="kO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Ko" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="KO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="k," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value=";" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=":" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=";i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=";i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="®" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="®" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=";o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=";O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=":o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=":O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=";," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="g/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="g//" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="g/i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="g/i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="#" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="#" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="g/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="g/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="g//o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="g//O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="g/," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="G/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G//" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G/i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G/i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G/u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G/u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G//o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G//O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="G/," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="c" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="c~" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ci" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ci" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="c%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="c%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="co" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="cO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="c~o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="c~O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="c," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="C" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="C~" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Ci" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Ci" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Cu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Cu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Co" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="CO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="C/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="C/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="C," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="j" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="J" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ji" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ji" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="=" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="=" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="jo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="jO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Jo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="JO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="j," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="z" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Z" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="zi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="zi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="zu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="zu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="zo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="zO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Zo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ZO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="z," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="[" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="{" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="[i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="[i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="[u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="[u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="[o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="[O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="{o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="{O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="[," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="]" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="}" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="]i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="]i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="]u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="]u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="]o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="]O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="}o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="}O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="]," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="É" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="É/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Éi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Éi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Éu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Éu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Éo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ÉO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="É/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="É/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="É," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="¥" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="¥," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="</" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="<//" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="</i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="</i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="</u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="</u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="</o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="</O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="<//o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="<//O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="</," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="t" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="t/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ti" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ti" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="^" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="^" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="to" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="tO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="t/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="t/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="t," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="w" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="W" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="wi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="wi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="w%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="w%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="wo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="wO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Wo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="WO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="w," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="d" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="D/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="di" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="di" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="(" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="(" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="do" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="dO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="D/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="D/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="d," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="q" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Q//" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="qi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="qi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Q/u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Q/u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="qo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="qO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Q//o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Q//O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="q," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="n" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="N" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ni" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ni" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="+" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="+" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="no" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="nO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="No" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="NO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="n," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="p" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="P" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="pi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="pi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="pu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="puu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="po" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="pO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Po" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="PO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="p," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="f" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="F" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="fi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="fi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="&" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="fo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="fO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Fo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="FO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="f," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="b" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="B" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="bi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="bi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="b%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="b%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="bo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="bO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Bo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="BO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="b," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="’" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="”" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="’i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="’i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="’uu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="’uuu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="’oo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="’OO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="”o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="”OO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="’," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="m" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="M" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="mi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="mi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=")" class="ModiLipi" onclick="fntype(this)"/><input type="button" value=")" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="mo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="mO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Mo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="MO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="m," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="y" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Y" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="yi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="yi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Áu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Áu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="yo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="yO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Yo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="YO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="y," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="r" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="R" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ri" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ri" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="$" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="$" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ro" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="rO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Ro" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="RO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="r," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="l" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="L" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="?" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="?" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="l%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="l%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="lo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="lO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Lo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="LO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="l," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="v" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="V" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="vi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="vi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="v%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="v%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="vo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="vO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Vo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="VO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="v," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="`/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`//" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`/i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`/i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`/u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`/u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`//o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`//O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="`/," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="©/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©//" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©/i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©/i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©/u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©/u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©//o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©//O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="©/," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="s" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="S" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="si" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="si" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="a%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="a%" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="so" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="sO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="So" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="SO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="s," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="h" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="H" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="hi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="hi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="@" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="@" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ho" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="hO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Ho" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="HO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="h," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="§" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="§," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="x" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="X" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="xi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="xi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="xu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="xu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="xo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="xO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Xo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="XO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="x," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="Dn" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="DN" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Dni" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Dni" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="D+" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="D+" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Dno" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="DnO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="DNo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="DNO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Dn," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="½" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½i" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½u" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="½," class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="Æ" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Æ/" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Æi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Æi" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Æu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Æu" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Æo" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="ÆO" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Æ/o" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Æ/O" class="ModiLipi" onclick="fntype(this)"/><input type="button" value="Æ," class="ModiLipi" onclick="fntype(this)"/>
+<br/>
+
+
+<br/><input type="button" value="&#x0021" class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="&#33" class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="&#x0022" class="ModiLipi" onclick="fntype(this)"/>
+<br/><input type="button" value="&#x0023" class="ModiLipi" onclick="fntype(this)"/>
+
+
+<br/>
+<div class="ModiLipi">
+jy jy mHRº MZ g/\J mHRº MZ</div>
+
+-->
+</body>
+</html>
